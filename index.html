@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#54217d">
+    <title>Açaí do Bairro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <img class="hero-img" src="Foto açai.jpg"
+             alt="Copo de açaí com frutas" fetchpriority="high">
+        <div class="hero-overlay">
+            <p class="eyebrow">FEITO DO SEU JEITO</p>
+            <h1>Açaí do Bairro</h1>
+            <p>Seu açaí favorito, montado por você.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="card">
+            <div class="section-heading">
+                <span class="step">01</span>
+                <div>
+                    <h2>Escolha o tamanho</h2>
+                    <p>Comece escolhendo seu copo.</p>
+                </div>
+            </div>
+
+            <div class="tamanhos">
+                <label class="tamanho">
+                    <input type="radio" name="tamanho"
+                           value="300" checked>
+                    <span class="size-content">
+                        <strong>300 ml</strong>
+                        <small>Até 2 adicionais</small>
+                        <b>R$ 12,00</b>
+                    </span>
+                </label>
+
+                <label class="tamanho">
+                    <input type="radio" name="tamanho"
+                           value="500">
+                    <span class="size-content">
+                        <strong>500 ml</strong>
+                        <small>Até 4 adicionais</small>
+                        <b>R$ 18,00</b>
+                    </span>
+                </label>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="section-heading">
+                <span class="step">02</span>
+                <div>
+                    <h2>Escolha os adicionais</h2>
+                    <p>Escolha seus favoritos.</p>
+                </div>
+            </div>
+
+            <p id="contador" class="contador">
+                0 de 2 adicionais selecionados
+            </p>
+
+            <div class="adicionais">
+                <label class="adicional">
+                    <input type="checkbox" value="Coco ralado"
+                           data-preco="1.5">
+                    <img src="Foto coco ralado.webp"
+                         alt="Coco ralado" loading="lazy">
+                    <span class="addon-info">
+                        <strong>Coco ralado</strong>
+                        <small>+ R$ 1,50</small>
+                    </span>
+                </label>
+
+                <label class="adicional">
+                    <input type="checkbox" value="Paçoca"
+                           data-preco="1.5">
+                    <img src="Foto paçoca.jpg"
+                         alt="Paçoca" loading="lazy">
+                    <span class="addon-info">
+                        <strong>Paçoca</strong>
+                        <small>+ R$ 1,50</small>
+                    </span>
+                </label>
+
+                <label class="adicional">
+                    <input type="checkbox" value="Banana"
+                           data-preco="1.5">
+                    <img src="Foto banana.webp"
+                         alt="Banana fatiada" loading="lazy">
+                    <span class="addon-info">
+                        <strong>Banana</strong>
+                        <small>+ R$ 1,50</small>
+                    </span>
+                </label>
+
+                <label class="adicional">
+                    <input type="checkbox" value="Creme de avelã"
+                           data-preco="3.5">
+                    <img src="Foto creme de avelâ.jpg"
+                         alt="Creme de avelã" loading="lazy">
+                    <span class="addon-info">
+                        <strong>Creme de avelã</strong>
+                        <small>+ R$ 3,50</small>
+                    </span>
+                </label>
+
+                <label class="adicional">
+                    <input type="checkbox" value="Morango"
+                           data-preco="2.5">
+                    <img src="Foto morango.jpg"
+                         alt="Morangos frescos" loading="lazy">
+                    <span class="addon-info">
+                        <strong>Morango</strong>
+                        <small>+ R$ 2,50</small>
+                    </span>
+                </label>
+
+                <label class="adicional">
+                    <input type="checkbox" value="Granola"
+                           data-preco="2">
+                    <img src="Foto granola.jpg"
+                         alt="Granola" loading="lazy">
+                    <span class="addon-info">
+                        <strong>Granola</strong>
+                        <small>+ R$ 2,00</small>
+                    </span>
+                </label>
+
+                <label class="adicional">
+                    <input type="checkbox" value="Leite condensado"
+                           data-preco="2">
+                    <img src="Foto leite condensado.jpg"
+                         alt="Leite condensado" loading="lazy">
+                    <span class="addon-info">
+                        <strong>Leite condensado</strong>
+                        <small>+ R$ 2,00</small>
+                    </span>
+                </label>
+
+                <label class="adicional">
+                    <input type="checkbox" value="Leite em pó"
+                           data-preco="2">
+                    <img src="Foto leite em pó.webp"
+                         alt="Leite em pó" loading="lazy">
+                    <span class="addon-info">
+                        <strong>Leite em pó</strong>
+                        <small>+ R$ 2,00</small>
+                    </span>
+                </label>
+            </div>
+
+            <div id="alerta" class="alerta" role="alert"></div>
+        </section>
+
+        <section class="card">
+            <div class="section-heading">
+                <span class="step">03</span>
+                <div>
+                    <h2>Dados para entrega</h2>
+                    <p>Preencha os dados do destinatário.</p>
+                </div>
+            </div>
+
+            <form id="formEntrega">
+                <label class="campo">
+                    Nome completo
+                    <input type="text" id="nome" name="nome"
+                           autocomplete="name" maxlength="100"
+                           required placeholder="Seu nome">
+                </label>
+
+                <label class="campo">
+                    Telefone com DDD
+                    <input type="tel" id="telefone" name="telefone"
+                           autocomplete="tel" inputmode="tel"
+                           maxlength="16" required
+                           placeholder="(41) 99999-9999">
+                    <small>Informe um telefone brasileiro com DDD.</small>
+                </label>
+
+                <label class="campo">
+                    Bairro
+                    <input type="text" id="bairro" name="bairro"
+                           autocomplete="address-level3"
+                           maxlength="80" required
+                           placeholder="Seu bairro">
+                </label>
+            </form>
+        </section>
+
+        <section class="card resumo">
+            <div class="section-heading">
+                <span class="step">04</span>
+                <div>
+                    <h2>Resumo do pedido</h2>
+                    <p>Confira os valores antes de confirmar.</p>
+                </div>
+            </div>
+
+            <div class="linha">
+                <span>Tamanho</span>
+                <strong id="textoTamanho">300 ml</strong>
+            </div>
+
+            <div class="linha">
+                <span>Preço do copo</span>
+                <strong id="precoBase">R$ 12,00</strong>
+            </div>
+
+            <div class="linha">
+                <span>Adicionais</span>
+                <strong id="precoAdicionais">R$ 0,00</strong>
+            </div>
+
+            <div class="linha">
+                <span>Taxa de entrega</span>
+                <strong id="taxaEntrega">R$ 10,00</strong>
+            </div>
+
+            <div class="linha nomes">
+                <span>Selecionados</span>
+                <span id="nomesAdicionais">Nenhum</span>
+            </div>
+
+            <div class="linha total">
+                <strong>Total</strong>
+                <strong id="total">R$ 22,00</strong>
+            </div>
+
+            <button type="button" id="botaoConfirmar"
+                    class="confirmar">
+                Confirmar pedido
+            </button>
+
+            <button type="button" id="botaoLimpar"
+                    class="limpar">
+                Limpar pedido
+            </button>
+
+            <div id="resultado" class="resultado"
+                 role="status" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer>Açaí do Bairro • Preços ilustrativos</footer>
+</body>
+</html>
